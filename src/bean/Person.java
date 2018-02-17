@@ -5,7 +5,7 @@ public abstract class Person {
 	private String name;
 	private String surname;
 	private Gender gender;
-	private String maidenName;
+	
 	
 	public int getAge() {
 		return age;
@@ -37,15 +37,7 @@ public abstract class Person {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
-	}
-
-	public String getMaidenName() {
-		return maidenName;
-	}
-
-	public void setMaidenName(String maidenName) {
-		this.maidenName = maidenName;
-	}
+	}	
 	
 	public Person () {
 		super();

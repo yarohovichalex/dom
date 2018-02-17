@@ -5,7 +5,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import bean.Child;
 import bean.Father;
-import bean.Mather;
+import bean.Mother;
 import bean.Person;
 import serv.Serv;
 
@@ -14,18 +14,18 @@ public class MySax extends DefaultHandler {
 	
 	private Person ent; 
 	private Serv serv = new Serv();
-	private Mather mama = new Mather();
+	private Mother mama = new Mother();
 	private Father papa = new Father();
 	private Child child = new Child();
 	private Object obj;
 	
 	
 	
-	public Mather getMama() {
+	public Mother getMama() {
 		return mama;
 	}
 
-	public void setMama(Mather mama) {
+	public void setMama(Mother mama) {
 		this.mama = mama;
 	}
 
@@ -61,7 +61,7 @@ public class MySax extends DefaultHandler {
 	  teg = qName;
 	  switch(teg) {
 	  case "mather" : 
-		  obj = new Mather();
+		  obj = new Mother();
 		  break;
 	  case "father" :
 		  obj = new Father();
@@ -76,7 +76,7 @@ public class MySax extends DefaultHandler {
 	}
 	@Override 
 	public void characters(char[] ch, int start, int length) throws SAXException { 
-	  if (obj instanceof Mather) {
+	  if (obj instanceof Mother) {
 		  if(teg.equals("name")) {
 			  mama.setName(new String(ch, start, length).trim());
 		  }

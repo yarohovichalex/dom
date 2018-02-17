@@ -2,10 +2,10 @@ package serv;
 
 import bean.Child;
 import bean.Father;
-import bean.Mather;
+import bean.Mother;
 
 public class Serv {
-	private Mather mama;
+	private Mother mama;
 	private Father papa;
 	private Child child;
 	private Child[] chi = new Child[3];

@@ -6,19 +6,25 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
+
+import bean.Child;
+import bean.Father;
+import bean.Mother;
 
 
 
 
 
 public class SaxPars {
-
+	Mother mom = new Mother();
+	Father pop = new Father();
+	Child child = new Child();
+	static MyDom domObj = new MyDom();
+	
 	public static void main(String[] args) {
 		
 		SAXParserFactory factory = SAXParserFactory.newInstance(); 
@@ -48,22 +54,18 @@ public class SaxPars {
 		Document doc = parser.getDocument();
 		doc.getDocumentElement().normalize();
 		 System.out.println("Корневой элемент: " + doc.getDocumentElement().getNodeName());
+		 
+		 NodeList motherList = doc.getElementsByTagName("mother");
+		 System.out.println(domObj.motherPars(motherList));
+		 
+         NodeList fatherList = doc.getElementsByTagName("father");
+		 System.out.println(domObj.fatherPars(fatherList));
+		 
+		 
 		 NodeList nodeList = doc.getElementsByTagName("child");
-         System.out.println("============================");   
+		 System.out.println(domObj.childPars(nodeList));
          
-        
-             Node node = nodeList.item(0);
-             System.out.println();
-             System.out.println("Текущий элемент: " + node.getNodeName());
-             if (Node.ELEMENT_NODE == node.getNodeType()) {
-
-                 Element element = (Element) node;
-                // Element mama = (Element)element.getElementsByTagName("mather");
-                 System.out.println("имя сотрудника: " + element.getElementsByTagName("name").item(0).getTextContent());
-                 System.out.println("Фамилия: " + element.getElementsByTagName("surname").item(0).getTextContent());
-                 System.out.println("Возраст: " + element.getElementsByTagName("age").item(0).getTextContent());
-                 
-             }
+        //     }
        //  }
 		
 //		Element root = document.getDocumentElement();
